@@ -1,9 +1,9 @@
 
 WITH purchase_cost_CTE AS
 (
-    SELECT sales.date_date, sales.orders_id, sales.revenue, sales.quantity*product.purchase_price AS purchase_cost
-    FROM {{ ref('stg_raw__product') }} AS sales
-    JOIN {{ ref('stg_raw__product') }} AS product
+SELECT sales.date_date, sales.orders_id, sales.revenue, sales.quantity*product.purchase_price AS purchase_cost
+FROM {{ ref('stg_raw__sales') }} AS sales
+JOIN {{ ref('stg_raw__product') }} AS product
     ON sales.products_id=product.products_id
 )
 
