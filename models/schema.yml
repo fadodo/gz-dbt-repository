@@ -12,6 +12,10 @@
          tests:
           - unique:
              column_name: "(orders_id || '-' || pdt_id)"
+          # Freshness testing - make sure to fill in the ...
+         loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+         freshness:
+            warn_after: {count: 90, period: day}
          columns:
            - name: date_date
              description: contains the date of purchase for each orders and products
