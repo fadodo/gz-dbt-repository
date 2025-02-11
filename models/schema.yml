@@ -51,6 +51,8 @@
              description: the logistic cost for Gz to ship the order to the customer
            - name: ship_cost
              description: shipping cost for Gz to send products to the customers
+
+
  models:
    - name: int_orders_margin
      description: your model description here
@@ -70,6 +72,7 @@
          description: the purchase cost of orders
        - name: margin
          description: the margin over of orders
+
 
  models:
    - name: finance_days
