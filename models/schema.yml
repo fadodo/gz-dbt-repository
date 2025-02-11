@@ -19,8 +19,7 @@
            - name: revenue
              description: The revenue provided on the product
            - name: quantity
-             description: The quantity of products purchased
-
+             description: The quantity of products purchase
          tests:
           - unique:
              column_name: "(orders_id || '-' || products_id)"
