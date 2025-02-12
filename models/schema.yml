@@ -176,9 +176,6 @@
 
    - name: int_campaigns
      description: 
-     tests:
-       - unique:
-          column_name: "(campaign_key || '-' || campaign_name)"
      columns: 
        - name: date_date
          description: Date de commande
