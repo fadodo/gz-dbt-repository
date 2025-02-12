@@ -10,5 +10,5 @@ SELECT date_date
 , SUM(ads_impression) AS ads_impression
 , SUM(ads_click) AS ads_click
 FROM {{ ref('finance_campaigns_day') }}
-GROUP BY datemonthmonth
+GROUP BY datemonth
 ORDER BY date_date DESC
