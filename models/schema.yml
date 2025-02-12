@@ -52,6 +52,88 @@
            - name: ship_cost
              description: shipping cost for Gz to send products to the customers
 
+       - name: adwords
+         identifier: raw_gz_adwords
+         columns: 
+           - name: date_date
+             description: Date de commande
+           - name: paid_source
+             description: Source de paiement
+           - name: campaign_key
+             description: clé de la campagne
+             tests:
+               - unique
+               - not_null
+           - name: camPGN_name
+             description: Nom de la campagne
+           - name: ads_cost
+             description: Cout de la campagne
+           - name: impression
+             description: Nombre d'impressions commandé
+           - name: click
+             description: Nombre de click obtenus
+       - name: criteo
+         identifier: raw_gz_criteo
+         columns: 
+           - name: date_date
+             description: Date de commande
+           - name: paid_source
+             description: Source de paiement
+           - name: campaign_key
+             description: clé de la campagne
+             tests:
+               - unique
+               - not_null
+           - name: camPGN_name
+             description: Nom de la campagne
+           - name: ads_cost
+             description: Cout de la campagne
+           - name: impression
+             description: Nombre d'impressions commandé
+           - name: click
+             description: Nombre de click obtenus            
+
+       - name: bing
+         identifier: raw_gz_bing
+         columns: 
+           - name: date_date
+             description: Date de commande
+           - name: paid_source
+             description: Source de paiement
+           - name: campaign_key
+             description: clé de la campagne
+             tests:
+               - unique
+               - not_null
+           - name: camPGN_name
+             description: Nom de la campagne
+           - name: ads_cost
+             description: Cout de la campagne
+           - name: impression
+             description: Nombre d'impressions commandé
+           - name: click
+             description: Nombre de click obtenus
+
+       - name: facebook
+         identifier: raw_gz_facebook
+         columns: 
+           - name: date_date
+             description: Date de commande
+           - name: paid_source
+             description: Source de paiement
+           - name: campaign_key
+             description: clé de la campagne
+             tests:
+               - unique
+               - not_null
+           - name: camPGN_name
+             description: Nom de la campagne
+           - name: ads_cost
+             description: Cout de la campagne
+           - name: impression
+             description: Nombre d'impressions commandé
+           - name: click
+             description: Nombre de click obtenus
 
  models:
    - name: int_orders_margin
@@ -74,7 +156,6 @@
          description: the margin over of orders
 
 
- models:
    - name: finance_days
      description: aggregate the finance information by day
      columns:
