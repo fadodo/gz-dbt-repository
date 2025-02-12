@@ -1,4 +1,5 @@
 SELECT date_date
+, EXTRACT(MONTH FROM date_date) AS datemonth
 , SUM(nb_transactions) AS nb_transactions
 , SUM(revenue) AS revenue
 , SUM(average_basket) AS average_basket
@@ -9,5 +10,5 @@ SELECT date_date
 , SUM(ads_impression) AS ads_impression
 , SUM(ads_click) AS ads_click
 FROM {{ ref('finance_campaigns_day') }}
-GROUP BY EXTRACT(MONTH FROM date_date)
+GROUP BY datemonth
 ORDER BY date_date DESC
