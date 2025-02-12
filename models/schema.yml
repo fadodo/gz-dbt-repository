@@ -63,7 +63,9 @@
              description: clé de la campagne
            - name: camPGN_name
              description: Nom de la campagne
-
+             tests:
+               - unique
+               - not_null
            - name: ads_cost
              description: Cout de la campagne
            - name: impression
@@ -79,9 +81,11 @@
              description: Source de paiement
            - name: campaign_key
              description: clé de la campagne
-
            - name: camPGN_name
              description: Nom de la campagne
+             tests:
+               - unique
+               - not_null           
            - name: ads_cost
              description: Cout de la campagne
            - name: impression
@@ -98,9 +102,11 @@
              description: Source de paiement
            - name: campaign_key
              description: clé de la campagne
-
            - name: camPGN_name
              description: Nom de la campagne
+             tests:
+               - unique
+               - not_null
            - name: ads_cost
              description: Cout de la campagne
            - name: impression
@@ -117,9 +123,11 @@
              description: Source de paiement
            - name: campaign_key
              description: clé de la campagne
-
            - name: camPGN_name
              description: Nom de la campagne
+             tests:
+               - unique
+               - not_null
            - name: ads_cost
              description: Cout de la campagne
            - name: impression
@@ -147,7 +155,6 @@
        - name: margin
          description: the margin over of orders
 
-
    - name: finance_days
      description: aggregate the finance information by day
      columns:
@@ -166,5 +173,26 @@
          description: Operational Margin per day
        - name: margin
          description: total margin per day
+
+   - name: int_campaigns
+     description: 
+     tests:
+       - unique:
+          column_name: "(campaign_key || '-' || campaign_name)"
+     columns: 
+       - name: date_date
+         description: Date de commande
+       - name: paid_source
+         description: Source de paiement
+       - name: campaign_key
+         description: clé de la campagne
+       - name: camPGN_name
+         description: Nom de la campagne
+       - name: ads_cost
+         description: Cout de la campagne
+       - name: impression
+         description: Nombre d'impressions commandé
+       - name: click
+         description: Nombre de click obtenus
         
           
