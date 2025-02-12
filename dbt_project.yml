@@ -43,6 +43,6 @@ models:
     mart:
       +materialized: table
       finance:
-        +schema: finance_days
+        +schema: finance
 
 
