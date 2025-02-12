@@ -156,9 +156,8 @@
        - name: margin
          description: total margin per day
 
- models:
    - name: int_campaigns
-     description: 
+     description:  model qui aggrege toutes les sources de campagne
      columns: 
        - name: date_date
          description: Date de commande
@@ -174,20 +173,19 @@
          description: Nombre d'impressions commandé
        - name: click
          description: Nombre de click obtenus
- models:
+
    - name: int_campaigns_day
-     description: 
+     description:  modele qui aggrege toutes les sources de pub par jour
      columns: 
        - name: date_date
          description: Date de commande
-       - name: ads cost
-         description: 
+       - name: ads_cost
+         description: Cout de pub par jour
        - name: ads_impression
-         description: 
+         description: cout d'impression par jour
        - name: ads_click
-         description: 
-          
- models:
+         description: total des click
+
    - name: finance_campaigns_day
      description: aggregate the finance information by day
      columns:
@@ -204,8 +202,8 @@
        - name: margin
          description: total margin per day
        - name: ads cost
-         description: 
+         description: cout total avec les données de finance
        - name: ads_impression
-         description: 
+         description: cout total avec les données de finance
        - name: ads_click
-         description: 
+         description: Cout total avec les données de finance
