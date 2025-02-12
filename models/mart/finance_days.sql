@@ -1,3 +1,5 @@
+{{config(materialized='table')}}
+
 SELECT date_date
 , COUNT(*) AS nb_transactions
 , ROUND(SUM (revenue),2) AS revenue
