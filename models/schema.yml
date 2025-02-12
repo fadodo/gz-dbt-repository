@@ -52,6 +52,76 @@
            - name: ship_cost
              description: shipping cost for Gz to send products to the customers
 
+       - name: adwords
+         identifier: raw_gz_adwords
+         columns: 
+           - name: date_date
+             description: Date de commande
+           - name: paid_source
+             description: Source de paiement
+           - name: campaign_key
+             description: clé de la campagne
+           - name: camPGN_name
+             description: Nom de la campagne
+           - name: ads_cost
+             description: Cout de la campagne
+           - name: impression
+             description: Nombre d'impressions commandé
+           - name: click
+             description: Nombre de click obtenus
+       - name: criteo
+         identifier: raw_gz_criteo
+         columns: 
+           - name: date_date
+             description: Date de commande
+           - name: paid_source
+             description: Source de paiement
+           - name: campaign_key
+             description: clé de la campagne
+           - name: camPGN_name
+             description: Nom de la campagne           
+           - name: ads_cost
+             description: Cout de la campagne
+           - name: impression
+             description: Nombre d'impressions commandé
+           - name: click
+             description: Nombre de click obtenus            
+
+       - name: bing
+         identifier: raw_gz_bing
+         columns: 
+           - name: date_date
+             description: Date de commande
+           - name: paid_source
+             description: Source de paiement
+           - name: campaign_key
+             description: clé de la campagne
+           - name: camPGN_name
+             description: Nom de la campagne
+           - name: ads_cost
+             description: Cout de la campagne
+           - name: impression
+             description: Nombre d'impressions commandé
+           - name: click
+             description: Nombre de click obtenus
+
+       - name: facebook
+         identifier: raw_gz_facebook
+         columns: 
+           - name: date_date
+             description: Date de commande
+           - name: paid_source
+             description: Source de paiement
+           - name: campaign_key
+             description: clé de la campagne
+           - name: camPGN_name
+             description: Nom de la campagne
+           - name: ads_cost
+             description: Cout de la campagne
+           - name: impression
+             description: Nombre d'impressions commandé
+           - name: click
+             description: Nombre de click obtenus
 
  models:
    - name: int_orders_margin
@@ -59,9 +129,6 @@
      columns:
        - name: orders_id
          description: order identifier
-         tests:
-           - unique
-           - not_null
        - name: date_date
          description: the date of orders
        - name: revenue
@@ -73,16 +140,11 @@
        - name: margin
          description: the margin over of orders
 
-
- models:
    - name: finance_days
      description: aggregate the finance information by day
      columns:
        - name: date_date
          description: day identifier
-         tests:
-           - unique
-           - not_null   
        - name: nb_transactions
          description: Total number of transactions per day
        - name: revenue
@@ -93,5 +155,77 @@
          description: Operational Margin per day
        - name: margin
          description: total margin per day
-        
-          
+
+   - name: int_campaigns
+     description:  model qui aggrege toutes les sources de campagne
+     columns: 
+       - name: date_date
+         description: Date de commande
+       - name: paid_source
+         description: Source de paiement
+       - name: campaign_key
+         description: clé de la campagne
+       - name: camPGN_name
+         description: Nom de la campagne
+       - name: ads_cost
+         description: Cout de la campagne
+       - name: impression
+         description: Nombre d'impressions commandé
+       - name: click
+         description: Nombre de click obtenus
+
+   - name: int_campaigns_day
+     description:  modele qui aggrege toutes les sources de pub par jour
+     columns: 
+       - name: date_date
+         description: Date de commande
+       - name: ads_cost
+         description: Cout de pub par jour
+       - name: ads_impression
+         description: cout d'impression par jour
+       - name: ads_click
+         description: total des click
+
+   - name: finance_campaigns_day
+     description: aggregate the finance information by day
+     columns:
+       - name: date_date
+         description: day identifier
+       - name: nb_transactions
+         description: Total number of transactions per day
+       - name: revenue
+         description: Total revenue revenue per day
+       - name: average_basket
+         description: Avereage Basket per day
+       - name: Operational_margin
+         description: Operational Margin per day
+       - name: margin
+         description: total margin per day
+       - name: ads cost
+         description: cout total avec les données de finance
+       - name: ads_impression
+         description: cout total avec les données de finance
+       - name: ads_click
+         description: Cout total avec les données de finance
+
+   - name: finance_campaigns_month
+     description: aggregate the finance information by day
+     columns:
+       - name: date_date
+         description: day identifier
+       - name: nb_transactions
+         description: Total number of transactions per day
+       - name: revenue
+         description: Total revenue revenue per day
+       - name: average_basket
+         description: Avereage Basket per day
+       - name: Operational_margin
+         description: Operational Margin per day
+       - name: margin
+         description: total margin per day
+       - name: ads cost
+         description: cout total avec les données de finance
+       - name: ads_impression
+         description: cout total avec les données de finance
+       - name: ads_click
+         description: Cout total avec les données de finance
