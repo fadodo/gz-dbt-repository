@@ -9,4 +9,4 @@ SELECT
 FROM {{ ref('finance_days') }} AS finday
 JOIN {{ ref("int_campaigns_day") }} AS campday
 USING(date_date)
-ORDER BY date_date
+ORDER BY date_date DESC
