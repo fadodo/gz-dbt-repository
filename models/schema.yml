@@ -156,6 +156,7 @@
        - name: margin
          description: total margin per day
 
+ models:
    - name: int_campaigns
      description: 
      columns: 
@@ -173,7 +174,7 @@
          description: Nombre d'impressions commandé
        - name: click
          description: Nombre de click obtenus
-
+ models:
    - name: int_campaigns_day
      description: 
      columns: 
@@ -185,4 +186,26 @@
          description: 
        - name: ads_click
          description: 
-
+          
+ models:
+   - name: finance_campaigns_day
+     description: aggregate the finance information by day
+     columns:
+       - name: date_date
+         description: day identifier
+       - name: nb_transactions
+         description: Total number of transactions per day
+       - name: revenue
+         description: Total revenue revenue per day
+       - name: average_basket
+         description: Avereage Basket per day
+       - name: Operational_margin
+         description: Operational Margin per day
+       - name: margin
+         description: total margin per day
+       - name: ads cost
+         description: 
+       - name: ads_impression
+         description: 
+       - name: ads_click
+         description: 
