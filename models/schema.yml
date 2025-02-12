@@ -1,0 +1,97 @@
+ # schema.yml
+
+ version: 2
+
+ sources:
+   - name: raw
+     schema : gz_raw_data
+     tables:
+       - name: sales
+         identifier: raw_gz_sales
+         description: sales of Greenweez / we have one row per product_id found in each orders_id
+         tests:
+          - unique:
+             column_name: "(orders_id || '-' || pdt_id)"
+          # Freshness testing - make sure to fill in the ...
+         loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+         freshness:
+            warn_after: {count: 90, period: day}
+         columns:
+           - name: date_date
+             description: contains the date of purchase for each orders and products
+           - name: orders_id
+             description: The order id 
+           - name: products_id
+             description: the products identifier
+           - name: revenue
+             description: The revenue provided on the product
+           - name: quantity
+             description: The quantity of products purchase
+       - name:  product
+         identifier: raw_gz_product
+         columns:
+           - name: products_id
+             description: the product identifier
+             tests:
+              - unique
+              - not_null
+           - name: purchase_price
+             description: the product purchase cost
+       - name:  ship
+         identifier: raw_gz_ship
+         columns:
+           - name: orders_id
+             description: contains the date of purchase for each orders and products
+             tests:
+              - unique
+              - not_null
+           - name: shipping_fee
+             description: the order identifier
+           - name: logcost
+             description: the logistic cost for Gz to ship the order to the customer
+           - name: ship_cost
+             description: shipping cost for Gz to send products to the customers
+
+
+ models:
+   - name: int_orders_margin
+     description: your model description here
+     columns:
+       - name: orders_id
+         description: order identifier
+         tests:
+           - unique
+           - not_null
+       - name: date_date
+         description: the date of orders
+       - name: revenue
+         description: the revenue per order
+       - name: quantity
+         description: quantity of order
+       - name: purchase_cost
+         description: the purchase cost of orders
+       - name: margin
+         description: the margin over of orders
+
+
+ models:
+   - name: finance_days
+     description: aggregate the finance information by day
+     columns:
+       - name: date_date
+         description: day identifier
+         tests:
+           - unique
+           - not_null   
+       - name: nb_transactions
+         description: Total number of transactions per day
+       - name: revenue
+         description: Total revenue revenue per day
+       - name: average_basket
+         description: Avereage Basket per day
+       - name: Operational_margin
+         description: Operational Margin per day
+       - name: margin
+         description: total margin per day
+        
+          
