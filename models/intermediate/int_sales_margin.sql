@@ -17,4 +17,5 @@ SELECT date_date
 , quantity
 ,purchase_cost
 , (revenue-purchase_cost) AS margin
+, {{ margin_percent( {{ 'revenue' }},{{ 'purchase_cost' }}) }} AS margin_percent
 FROM purchase_cost_CTE
