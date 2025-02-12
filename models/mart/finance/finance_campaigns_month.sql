@@ -1,5 +1,5 @@
 SELECT date_date
-, EXTRACT( FROM date_date) AS datemonth
+, EXTRACT(MONTH FROM date_date) AS datemonth
 , SUM(nb_transactions) AS nb_transactions
 , SUM(revenue) AS revenue
 , SUM(average_basket) AS average_basket
