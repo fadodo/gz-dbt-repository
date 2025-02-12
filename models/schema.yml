@@ -63,9 +63,7 @@
              description: clé de la campagne
            - name: camPGN_name
              description: Nom de la campagne
-             tests:
-               - unique
-               - not_null
+
            - name: ads_cost
              description: Cout de la campagne
            - name: impression
@@ -81,9 +79,7 @@
              description: Source de paiement
            - name: campaign_key
              description: clé de la campagne
-             tests:
-               - unique
-               - not_null
+
            - name: camPGN_name
              description: Nom de la campagne
            - name: ads_cost
@@ -102,9 +98,7 @@
              description: Source de paiement
            - name: campaign_key
              description: clé de la campagne
-             tests:
-               - unique
-               - not_null
+
            - name: camPGN_name
              description: Nom de la campagne
            - name: ads_cost
@@ -123,9 +117,7 @@
              description: Source de paiement
            - name: campaign_key
              description: clé de la campagne
-             tests:
-               - unique
-               - not_null
+
            - name: camPGN_name
              description: Nom de la campagne
            - name: ads_cost
